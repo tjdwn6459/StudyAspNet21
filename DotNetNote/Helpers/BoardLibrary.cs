@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace Helpers
 {
-    class BoardLibrary
+    public class BoardLibrary
     {
+        //NLOG추가
+        public static readonly Logger LOGGER = LogManager.GetCurrentClassLogger();
+
         #region 각 글의 Step별 들여쓰기 처리
         /// <summary>
         /// 각 글의 Step별 들여쓰기 처리
@@ -172,18 +176,29 @@ namespace Helpers
         public static string FuncFileDownSingle(
             int id, string strFileName, string strFileSize)
         {
-            if (strFileName.Length > 0)
+
+            try
             {
-                return "<a href=\"/DotNetNote/BoardDown.aspx?Id="
-                    + id.ToString() + "\">"
-                    + DownloadType(strFileName, strFileName + "("
-                    + ConvertToFileSize(Convert.ToInt32(strFileSize)) + ")")
-                    + "</a>";
+                if (strFileName.Length > 0)
+                {
+                    return "<a href=\"/DotNetNote/BoardDown.aspx?Id="
+                        + id.ToString() + "\">"
+                        + DownloadType(strFileName, strFileName + "("
+                        + ConvertToFileSize(Convert.ToInt32(strFileSize)) + ")")
+                        + "</a>";
+                }
+                else
+                {
+                    return "-";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return "-";
+
+                LOGGER.Error($"BoardLibrary.FuncFileDownSingle 예외발생 : {ex}");
+                return "err";
             }
+            
         }
         #endregion
 

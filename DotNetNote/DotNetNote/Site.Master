@@ -64,7 +64,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - .NET Note</p>
+                <p>&copy; <%: DateTime.Now.Year %> - .NET Note.all rights reserved.</p>
             </footer>
         </div>
 

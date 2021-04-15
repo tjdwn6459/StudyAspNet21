@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Helpers
 {
-    class HtmlUtility
+    public class HtmlUtility
     {
         #region Encode() 함수
         /// <summary>
@@ -32,6 +32,8 @@ namespace Helpers
             }
             return strTemp;
         }
+
+      
         #endregion
 
         #region EncodeWithTabAndSpace() 함수

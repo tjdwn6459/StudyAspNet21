@@ -29,5 +29,24 @@ namespace Helpers.Test
             Assert.AreEqual(expected, actual);
 
         }
+
+        [Ignore]
+
+        [TestMethod]
+        public void AddTest()
+        {
+            var expected = 10;
+            var actual = (5 + 5);
+            Assert.AreEqual(expected, actual);
+        }
+
+
+        [TestMethod]
+        public void IsPhotoTest()
+        {
+            var imagePath = @"D:\GitRepository\StudyDesktopApp\WpfApp";
+            bool result = BoardLibrary.IsPhoto(imagePath);
+            Assert.IsFalse(result, "file extension must be png , jpg, gif");
+        }
     }
 }

@@ -20,8 +20,8 @@ namespace LoginWebApp.Models
         {
             SqlCommand cmd = new SqlCommand("WriteUsers", conn);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("UserID", userId);
-            cmd.Parameters.AddWithValue("Password", password);
+            cmd.Parameters.AddWithValue("@UserID", userId);
+            cmd.Parameters.AddWithValue("@Password", password);
 
             conn.Open();
             var result = cmd.ExecuteNonQuery();
@@ -34,7 +34,7 @@ namespace LoginWebApp.Models
         {
             bool result = false;
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE UserID AND Password = @Password", conn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE UserID = @UserID AND Password = @Password", conn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue(@"UserId", userId);
             cmd.Parameters.AddWithValue(@"Password", password);
