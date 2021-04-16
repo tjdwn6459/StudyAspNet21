@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BoardView.aspx.cs" Inherits="DotNetNote.Board.BoardView" %>
+<%@ Register Src="~/Controls/CommentControl.ascx" TagPrefix="uc1" TagName="CommentControl" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -86,8 +87,9 @@
             <tr>
                 <td colspan="4">
 
-                    <%--<uc1:boardcommentcontrol runat="server"
-                        id="BoardCommentControl" />--%>
+                    <uc1:CommentControl runat="server"
+                        id="CommentControl" />
+                    
 
                 </td>
             </tr>

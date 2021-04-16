@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BoardList.aspx.cs" Inherits="DotNetNote.Board.BoardList" %>
 
 <%@ Register Src="~/Controls/PagingControl.ascx" TagName="PagingControl" TagPrefix="uc1" %>
+<%@ Register Src="~/Controls/SearchControl.ascx" TagPrefix="uc1" TagName="SearchControl" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h3 class="text-center">게시판</h3>
     <span> 글 목록 = 완성형 게시판</span>
@@ -9,7 +11,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <asp:Literal ID="LblTotalrecord" runat="server"></asp:Literal>
+                <asp:Literal ID="LblTotalrecord" runat="server"></asp:Literal><br />
+                <uc1:SearchControl runat="server" ID="SearchControl" />
                 <asp:GridView ID="GrvNotes" runat="server" AutoGenerateColumns="false"
                     DataKeyNames="Id" CssClass="table table-bordered table-hover table-striped table-responsive">
                     <Columns>
@@ -24,6 +27,7 @@
                              HeaderStyle-Width="350px"
                             ItemStyle-HorizontalAlign="Left">
                             <ItemTemplate>
+                                <%# Helpers.BoardLibrary.FuncStep(Eval("Step")) %>
                                 <asp:HyperLink ID="LnkTitle" runat="server"
                                     NavigateUrl='<%# "BoardView.aspx?Id=" + Eval("Id") %>'>
                                     <%# Eval("Title") %>
@@ -35,11 +39,11 @@
                             HeaderStyle-Width="70px"
                             ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
-                                <%# Eval("Filename") %>
-                               <%-- <%# Helpers.BoardLibrary.FuncFileDownSingle(
+                               
+                                <%# Helpers.BoardLibrary.FuncFileDownSingle(
                                     Convert.ToInt32(Eval("Id")), 
                                     Eval("FileName").ToString(), 
-                                    Eval("FileSize").ToString()) %>--%>
+                                    Eval("FileSize").ToString()) %>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="Name" HeaderText="작성자"
@@ -77,7 +81,7 @@
         <div class="row">
             <div class="col">
                 <div class="text-right">
-                    <a href="BoardWrite.aspx" class="btn btn-primary">글쓰기</a>
+                    <a href="BoardWrite.aspx?Mode=Write" class="btn btn-primary">글쓰기</a>
                 </div>
             </div>
         </div>
