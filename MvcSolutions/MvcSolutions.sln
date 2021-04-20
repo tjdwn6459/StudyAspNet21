@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbWebApp", "DbWebApp\DbWebA
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MvcWebLab.Database", "MvcWebLab.Database\MvcWebLab.Database.sqlproj", "{44CDD0B2-9ECF-4818-A37E-260E779E3723}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoListWebApp", "TodoListWebApp\TodoListWebApp.csproj", "{80A42529-4971-41C7-BCF6-D0E63F50D973}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoListWebApp", "TodoListWebApp\TodoListWebApp.csproj", "{80A42529-4971-41C7-BCF6-D0E63F50D973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiTestApp", "RestApiTestApp\RestApiTestApp.csproj", "{B6EB0286-5412-4E92-8C08-77CC5AE5CBCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPortpolio", "MyPortpollo\MyPortpolio.csproj", "{A1BC6983-B868-4AB1-9D8C-3D650EB2DD6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,14 @@ Global
 		{80A42529-4971-41C7-BCF6-D0E63F50D973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80A42529-4971-41C7-BCF6-D0E63F50D973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80A42529-4971-41C7-BCF6-D0E63F50D973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6EB0286-5412-4E92-8C08-77CC5AE5CBCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6EB0286-5412-4E92-8C08-77CC5AE5CBCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6EB0286-5412-4E92-8C08-77CC5AE5CBCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6EB0286-5412-4E92-8C08-77CC5AE5CBCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1BC6983-B868-4AB1-9D8C-3D650EB2DD6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1BC6983-B868-4AB1-9D8C-3D650EB2DD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1BC6983-B868-4AB1-9D8C-3D650EB2DD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1BC6983-B868-4AB1-9D8C-3D650EB2DD6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

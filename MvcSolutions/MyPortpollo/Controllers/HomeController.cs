@@ -1,13 +1,13 @@
-﻿using BasicMvcWebApp.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MyPortpollo.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BasicMvcWebApp.Controllers
+namespace MyPortpollo.Controllers
 {
     public class HomeController : Controller
     {
@@ -28,11 +28,29 @@ namespace BasicMvcWebApp.Controllers
             return View();
         }
 
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Board()
+        {
+            return View();
+        }
+
         public IActionResult Profile()
         {
             return View();
         }
 
+        public IActionResult Portpolio()
+        {
+            return View();
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
