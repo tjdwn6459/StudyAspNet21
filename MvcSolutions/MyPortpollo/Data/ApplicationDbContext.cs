@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MyPortpolio.Models;
+using RestApiTestApp.Models;
 
 namespace MyPortpollo.Data
 {
@@ -12,5 +14,10 @@ namespace MyPortpollo.Data
             : base(options)
         {
         }
+        public DbSet<MyPortpolio.Models.Contact> Contact { get; set; }
+        public DbSet<MyPortpolio.Models.Account> Account { get; set; }
+
+        public DbSet<Board> Boards { get; set; }
+
     }
 }

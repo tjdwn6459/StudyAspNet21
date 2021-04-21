@@ -27,6 +27,14 @@ namespace MyPortpollo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession(opt =>
+            {
+                opt.IdleTimeout = TimeSpan.FromMinutes(10); // 10 분마다 타임아웃
+                opt.Cookie.HttpOnly = true;
+                opt.Cookie.IsEssential = true;
+            });
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -58,6 +66,7 @@ namespace MyPortpollo
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession(); //세션사용 없으면 HttpContext.Session 접근불가
 
             app.UseEndpoints(endpoints =>
             {
