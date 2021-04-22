@@ -19,5 +19,7 @@ namespace MyPortpollo.Data
 
         public DbSet<Board> Boards { get; set; }
 
+        public DbSet<MyPortpolio.Models.Manage> Manages { get; set; }
+
     }
 }

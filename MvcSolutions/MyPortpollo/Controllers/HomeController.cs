@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MyPortpollo.Data;
 using MyPortpollo.Models;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,17 @@ using System.Threading.Tasks;
 
 namespace MyPortpollo.Controllers
 {
+
+   
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -40,7 +45,8 @@ namespace MyPortpollo.Controllers
 
         public IActionResult Profile()
         {
-            return View();
+            var profile = _context.Manages.FirstOrDefault(p => p.Cate.Equals("Profile"));
+            return View(profile);
         }
 
         public IActionResult Portpolio()

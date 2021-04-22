@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyPortpolio.Models;
 using MyPortpollo.Data;
+using X.PagedList;
 
 namespace MyPortpolio.Controllers
 {
@@ -18,9 +19,13 @@ namespace MyPortpolio.Controllers
         }
 
         // GET: Board
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-            return View(await _context.Boards.ToListAsync());
+            var pageNumber = page ?? 1; // page 값이 널이면 1
+            var pageSize = 10;
+
+            var boards = await _context.Boards.ToPagedListAsync(pageNumber, pageSize);
+            return View(boards);
         }
 
         // GET: Board/Details/5
@@ -38,6 +43,11 @@ namespace MyPortpolio.Controllers
                 return NotFound();
             }
 
+            //ReadCount  증가
+            board.ReadCount += 1;
+            _context.Update(board);
+            await _context.SaveChangesAsync();
+
             return View(board);
         }
 
@@ -52,7 +62,7 @@ namespace MyPortpolio.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Subject,Contents,Writer")] Board board)
+        public async Task<IActionResult> Create([Bind("Subject,Contents,Writer")] Board board)
         {
             if (ModelState.IsValid)
             {
