@@ -9,7 +9,7 @@ namespace MyNewPortpolio.Data
 {
     public class MyNewPortpolioContext : DbContext
     {
-        public MyNewPortpolioContext (DbContextOptions<MyNewPortpolioContext> options)
+        public MyNewPortpolioContext(DbContextOptions<MyNewPortpolioContext> options)
             : base(options)
         {
         }
@@ -19,5 +19,7 @@ namespace MyNewPortpolio.Data
         public DbSet<MyNewPortpolio.Models.Account> Account { get; set; }
 
         public DbSet<MyNewPortpolio.Models.Manage> Manages { get; set; }
+
+      
     }
 }

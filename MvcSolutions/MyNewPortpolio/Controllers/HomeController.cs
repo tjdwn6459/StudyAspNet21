@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MyNewPortpolio.Data;
+using MyNewPortpolio.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -40,9 +42,22 @@ namespace MyNewPortpolio.Controllers
 
         public IActionResult Profile()
         {
-            var profile = _context.Manages.FirstOrDefault(p => p.Cate.Equals("Profile"));
-            return View(profile);
+            return View();
         }
 
+        public IActionResult Portpolio()
+        {
+            return View();
+        }
+
+        public   IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Board()
+        {
+            return View();
+        }
     }
 }
